@@ -10,7 +10,7 @@ function Header() {
     useContext(AudioContextApp);
 
   useEffect(() => {
-    if (videoRef.current) videoRef.current.volume = 0.1;
+    if (videoRef.current) videoRef.current.volume = 0.2;
 
     playAudio(videoRef, 'header');
   }, []);
