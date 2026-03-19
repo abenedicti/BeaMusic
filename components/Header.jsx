@@ -26,7 +26,7 @@ function Header() {
 
       <video
         ref={videoRef}
-        src="/public/clip.mp4"
+        src="/clip.mp4"
         autoPlay
         loop
         playsInline
