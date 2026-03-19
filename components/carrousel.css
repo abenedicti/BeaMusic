@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'Jost';
+  src: url(../fonts/Jost-Regular.ttf);
+}
+.avis-clients {
+  background: var(--bg-light);
+  border-radius: 20px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+.avis-clients h2 {
+  text-align: center;
+}
+.avis-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.carrousel {
+  display: flex;
+  gap: 20px;
+  animation: scroll 45s linear infinite;
+  align-items: center;
+}
+
+.carrousel img {
+  width: auto;
+  height: 300px;
+  border-radius: 12px;
+  opacity: 1;
+  transition: 0.3s ease;
+  image-rendering: -webkit-optimize-contrast;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.carrousel img:hover {
+  opacity: 1;
+  transform: scale(1.02);
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.avis-container::before,
+.avis-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 2;
+}
+
+.avis-container::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-light), transparent);
+}
+
+.avis-container::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-light), transparent);
+}

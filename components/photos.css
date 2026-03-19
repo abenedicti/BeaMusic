@@ -1,0 +1,19 @@
+.photos {
+  margin: 60px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.photos img {
+  width: 70%;
+  max-width: 900px;
+  min-width: 300px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  transition: transform 0.4s ease;
+}
+
+.photos img:hover {
+  transform: scale(1.02);
+}

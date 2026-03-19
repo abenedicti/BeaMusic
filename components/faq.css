@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'Jost';
+  src: url(../fonts/Jost-Regular.ttf);
+}
+.faq-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+.faq-container h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-family: 'Jost';
+  text-align: center;
+}
+
+.faq-item {
+  border: 1px solid rgb(118, 134, 189);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.faq-question {
+  color: rgb(118, 134, 189);
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.arrow {
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+  color: white;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  margin-top: 0.5rem;
+  color: #f8f5f5;
+  text-align: left;
+}
+
+.faq-answer ul {
+  list-style-type: circle;
+  padding-left: 20px;
+}

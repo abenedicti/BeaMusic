@@ -1,0 +1,90 @@
+@font-face {
+  font-family: 'Jost';
+  src: url(../fonts/Jost-Regular.ttf);
+}
+
+.events-container {
+  background: linear-gradient(180deg, #111111 0%, #1c1c1e 100%);
+  padding: 40px 20px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.events {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.events h2 {
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+  color: var(--accent);
+}
+
+.events h2:hover {
+  color: var(--text);
+}
+
+.events img {
+  border-radius: 10px;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  height: auto;
+  object-fit: cover;
+  width: 100px;
+}
+
+.events img:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.modal {
+  background: #1a1a1a;
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  border: 1px solid rgba(118, 134, 189, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+.modal button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+}
+.modal h2 {
+  margin: 0;
+}
+@media (max-width: 480px) {
+  .events {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .events div img {
+    width: 100%;
+    max-width: 150px;
+  }
+}

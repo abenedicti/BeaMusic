@@ -1,0 +1,33 @@
+:root {
+  --bg: #0f0f10;
+  --bg-light: linear-gradient(180deg, #111111 0%, #1c1c1e 100%);
+  --text: #f5f5f5;
+  --text-soft: #bdbdbd;
+  --accent: rgb(118, 134, 189);
+
+  font-family: 'Jost', system-ui, sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+a:hover {
+  opacity: 0.8;
+}
