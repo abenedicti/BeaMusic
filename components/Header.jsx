@@ -1,23 +1,18 @@
-import { useRef, useState, useEffect } from 'react';
-// import clip from '../public/clip.mp4';
-import '../components/header.css';
+import { useRef, useEffect, useContext } from 'react';
+import { AudioContextApp } from '../context/AudioContext';
 import muteBtn from '../src/assets/mute-btn.png';
 import soundBtn from '../src/assets/sound-btn.png';
+import '../components/header.css';
 
 function Header() {
   const videoRef = useRef(null);
-  const [isMuted, setIsMuted] = useState(true);
-
-  const toggleSound = () => {
-    if (!videoRef.current) return;
-    videoRef.current.muted = !isMuted;
-    setIsMuted(!isMuted);
-  };
+  const { headerIsMuted, toggleHeaderMute, playAudio } =
+    useContext(AudioContextApp);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.volume = 0.1;
-    }
+    if (videoRef.current) videoRef.current.volume = 0.1;
+
+    playAudio(videoRef, 'header');
   }, []);
 
   return (
@@ -31,13 +26,13 @@ function Header() {
         loop
         playsInline
         preload="metadata"
-        muted={isMuted}
+        muted={headerIsMuted}
       />
 
-      <button onClick={toggleSound}>
+      <button onClick={toggleHeaderMute}>
         <img
-          src={isMuted ? muteBtn : soundBtn}
-          alt={isMuted ? 'Mute' : 'Play'}
+          src={headerIsMuted ? muteBtn : soundBtn}
+          alt={headerIsMuted ? 'Mute' : 'Play'}
         />
       </button>
     </div>

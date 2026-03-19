@@ -1,5 +1,6 @@
 //! convertir en mp4 si poss => plus fiable
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useContext } from 'react';
+import { AudioContextApp } from '../context/AudioContext';
 import helpYourself from '../music/help-yourself.mpeg';
 import clandestino from '../music/clandestino.mpeg';
 import leTempsPasse from '../music/le-temps-passe.mp3';
@@ -21,6 +22,7 @@ function Songs() {
   const [currentIndex, setCurrentIndex] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
+  const { playAudio, pauseAudio } = useContext(AudioContextApp);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -31,26 +33,18 @@ function Songs() {
   const handlePlayPause = (index) => {
     if (currentIndex === index) {
       if (isPlaying) {
-        audioRef.current.pause();
+        pauseAudio(audioRef);
         setIsPlaying(false);
       } else {
-        audioRef.current.play();
+        playAudio(audioRef, 'playlist');
         setIsPlaying(true);
       }
       return;
     }
 
-    if (audioRef.current) {
-      audioRef.current.pause();
-    }
-
     setCurrentIndex(index);
     setIsPlaying(true);
-  };
-
-  const handleEnded = () => {
-    setIsPlaying(false);
-    setCurrentIndex(null);
+    playAudio(audioRef, 'playlist');
   };
 
   return (
@@ -76,7 +70,7 @@ function Songs() {
           ref={audioRef}
           src={musiques[currentIndex].src}
           autoPlay
-          onEnded={handleEnded}
+          onEnded={setIsPlaying}
         />
       )}
     </div>

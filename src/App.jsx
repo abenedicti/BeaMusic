@@ -6,10 +6,11 @@ import Footer from '../components/Footer';
 import Faq from '../components/Faq';
 import Photo from '../components/Photo';
 import './App.css';
+import AudioProvider from '../context/AudioProvider.jsx';
 
 function App() {
   return (
-    <>
+    <AudioProvider>
       <Header />
       <Playlist />
       <Events />
@@ -17,7 +18,7 @@ function App() {
       <Faq />
       <Photo />
       <Footer />
-    </>
+    </AudioProvider>
   );
 }
 
